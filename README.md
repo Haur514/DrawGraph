@@ -5,7 +5,7 @@
 
 RatioTimerはこのような問題を解決します．
 
-## HOW TO USE
+# HOW TO USE
 ```
 git clone https://github.com/Haur514/RatioTimer
 cd RatioTimer

@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: ./
+    image: ratio-timer
+    restart: always
+    ports:
+      - 8080:80

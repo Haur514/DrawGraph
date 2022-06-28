@@ -2,7 +2,9 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style/style.css">
-        <script src="script/script.js"></script>
+        <script src="./script/script.js"></script>
+        <script src="./script/timer.js"></script>
+        <script src="./script/draw.js"></script>
         <title>時間計測アプリ</title>
     </head>
     <body>
@@ -11,11 +13,9 @@
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
+            <!-- テキストレイヤ -->
+            <canvas class="canvas" width="500px" height="500px"></canvas>
         </div>
-        <p>
-            経過時間
-            <spam id="passed_time_label" class="passed_time_label">00:00:00</spam>
-        </p>
         <p>
             計測時間を入力してください<br>
             <input type="time" id="measure_time_label" step="1" value="00:00:00">

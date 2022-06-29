@@ -12,18 +12,25 @@ window.onload = function(){
 
     let start_btn = document.getElementById("start_btn");
     start_btn.addEventListener("click",function(){
-        if(!is_timer_running){
+        if(!is_timer_running && measure_time != null){
             start_date = new Date();
             is_timer_running = true;
             run();
         }
     });
 
+    let stop_btn = document.getElementById("stop_btn");
     stop_btn.addEventListener("click",function(){
-        old_passed_time += get_time_since_latest_start_btn_pressed(start_date);
         if(is_timer_running){
+        old_passed_time += get_time_since_latest_start_btn_pressed(start_date);
             is_timer_running = false;
         }
+    });
+
+    let reset_btn = document.getElementById("reset_btn");
+    reset_btn.addEventListener("click",function(){
+        old_passed_time = 0;
+        start_date = new Date();
     });
 }
 
@@ -35,7 +42,7 @@ var measure_time;
 var passed_mili_seconds;
 
 // 円の太さ
-var haba = 0.12
+var circle_haba = 0.12
 
 // 直前にSTOPが押されるまでに経過していた時間[ms]
 var old_passed_time = 0;
@@ -61,25 +68,25 @@ var draw_update = function(){
     clock();
     update_time_label();
     describe_what_each_circle_represents();
+    if(get_remaining_time() < 0){
+        console.log(get_remaining_time());
+        is_timer_running = false;
+        old_passed_time = 0;
+    }
 }
 
 // 経過時間を記録
 var update_time_label = function(){
-    let passed_second = get_passed_mili_seconds(start_date)/1000;
+    let passed_second = get_passed_mili_seconds()/1000;
     let str_passed_time = String(parseInt(passed_second/3600)).padStart(2,'0')+":"+String(parseInt((passed_second%3600)/60)).padStart(2,'0')+":"+String(parseInt(passed_second%60)).padStart(2,'0');
     show_passed_time_label(str_passed_time);
 }
 
 // 経過時間を[h,m,s]で返す．
 
-// 残り時間を返す．
-var get_remaining_time = function(){
-
-}
-
 
 var clock = function(){
-    passed_mili_seconds = get_passed_mili_seconds(start_date);
+    passed_mili_seconds = get_passed_mili_seconds();
 
     drawCircle(get_degree_of_outside_circle(passed_mili_seconds),0);
     drawCircle((((passed_mili_seconds/1000)%60)/60*360)%360,1);

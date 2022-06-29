@@ -9,7 +9,7 @@ var clearCircle = function(order_from_the_outside){
 var drawCircle = function(degree,order_from_the_outside){
     clearCircle(order_from_the_outside);
     let ctx = canvas[order_from_the_outside].getContext("2d");
-    let radius = max_radius_of_the_circle-order_from_the_outside*max_radius_of_the_circle*haba;
+    let radius = max_radius_of_the_circle-order_from_the_outside*max_radius_of_the_circle*circle_haba;
     let radius_of_inside_circle = get_radius_of_inside_circle(order_from_the_outside);
     //外円の描画
     ctx.beginPath();
@@ -36,16 +36,12 @@ var drawCircle = function(degree,order_from_the_outside){
 
 // 円の中央の白色部分の半径
 var get_radius_of_inside_circle = function(order_from_the_outside){
-    return (MAX_NUM_OF_CIRCLE-order_from_the_outside) != 0 ? max_radius_of_the_circle-(order_from_the_outside+1)*max_radius_of_the_circle*haba: 0;
+    return (MAX_NUM_OF_CIRCLE-order_from_the_outside) != 0 ? max_radius_of_the_circle-(order_from_the_outside+1)*max_radius_of_the_circle*circle_haba: 0;
 }
 
 // degree -> radian 12時の方向を起点とした角度に変換
 var translate_radian_from_degree = function(deg){
     return Math.PI*2* (deg%360)/360 - Math.PI/2;
-}
-
-var translate_hourminutesecond_to_seconds = function(hms){
-    return hms[0]*3600+hms[1]*60+hms[2];
 }
 
 // 入力された計測時間の何割が実行されたかを返す．
@@ -78,13 +74,21 @@ var get_color_of_outside_circle=function(ratio){
 // canvas[3]のキャンバスの中央に経過時間をテキストで表示
 var show_passed_time_label = function(str){
     let ctx = canvas[3].getContext("2d");
-    ctx.font = 'bold 30pt Arial';
+    
     ctx.fillStyle = 'black';
     ctx.textAlign = "center";
     // 経過時間を表示
-    ctx.fillText(str,canvas_width/2,canvas_height/2);
+    ctx.font = 'bold 15pt Arial';
+    ctx.fillText("Elapsed",canvas_width/2,canvas_height/2-45);
+    ctx.fillText("Remaining",canvas_width/2,canvas_height/2+20);
+
+    ctx.font = 'bold 30pt Arial';
+    ctx.fillText(str,canvas_width/2,canvas_height/2-10);
+    ctx.fillText(trans_ms_to_str_hms(get_remaining_time()),canvas_width/2,canvas_height/2+55);
+
     // // 残り時間を表示
-    // measure_time[0]-
+    // ctx.font = 'bold 15pt Arial';
+    // ctx.font = 'bold 30pt Arial';
 }
 
 // canvas[3]に，テキストを追加する．それぞれの円の示す内容を記す．
@@ -93,8 +97,8 @@ var describe_what_each_circle_represents = function(){
     ctx.font = 'bold 10pt Arial';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'left';
-    ctx.fillText("残り時間",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(0)-5);
-    ctx.fillText("秒",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(1)-5);
-    ctx.fillText("分",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(2)-5);
-    ctx.fillText("時",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(3)-5);
+    ctx.fillText("remaining",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(0)-5);
+    ctx.fillText("second",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(1)-5);
+    ctx.fillText("minute",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(2)-5);
+    ctx.fillText("hour",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(3)-5);
 }

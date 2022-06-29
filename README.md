@@ -6,7 +6,7 @@
 
 RatioTimerはこのような問題を解決します．
 
-<img width="521" alt="image" src="https://user-images.githubusercontent.com/82633228/175957339-13e27e51-7b6c-438e-9771-70f36455fc92.png">
+<img width="535" alt="image" src="https://user-images.githubusercontent.com/82633228/176338473-4ec0a9e8-215d-4cf9-9bf9-5bfda0848330.png">
 
 制限時間に対し，経過した時間の割合をこのような円で表示します．<br>
 最も外側の円が，制限時間の何割が経過したかを表します．<br>
@@ -14,9 +14,12 @@ RatioTimerはこのような問題を解決します．
 RatioTimerを使って，煩わしい割合計算からはおさらばしましょう！
 
 # HOW TO USE
+
+## ローカルで使用する場合
 ```
 git clone https://github.com/Haur514/RatioTimer
 cd RatioTimer
-open index.html
+docker compose up
 ```
+localhost:8080にアクセスすれば使用できます！
 

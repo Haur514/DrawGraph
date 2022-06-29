@@ -1,3 +1,16 @@
+#lower_part{
+  top:100px;
+  position:absolute;
+  font-size:50px;
+  font-family:"ヒラギノ丸ゴ ProN";
+}
+
+#measure_time_label{
+  width:200px;
+  height:50px;
+  font-size:50px;
+}
+
 .canvas-wrap{
     width: 600px;
     max-width: 100%;
@@ -15,7 +28,6 @@
     left:0;
     top:0;
     border: 0;
-    max-width:100%;
     box-sizing: content-box;
     padding: 0;
     margin: 0;
@@ -65,12 +77,11 @@ html {
 .btn,
 a.btn,
 button.btn {
-  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem;
+  padding:10px 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

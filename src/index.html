@@ -8,22 +8,22 @@
         <title>時間計測アプリ</title>
     </head>
     <body>
-        <div class="canvas_field">
+        <div class="canvas_field" id="canvas_field">
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <!-- テキストレイヤ -->
-            <canvas class="canvas" width="500px" height="500px"></canvas>
+            <canvas class="canvas"></canvas>
         </div>
-        <p>
-            計測時間を入力してください<br>
+        <div id="lower_part" top = "">
             <input type="time" id="measure_time_label" step="1" value="00:00:00">
-        </p>
-        <br>
-        <br>
-        <button type="button" id="start_btn" class="btn">START</button>
-        <button type="button" id="stop_btn" class="btn">STOP</button>
-        <button type="button" id="reset_btn" class="btn">RESET</button>
+            <br>
+            <br>
+            <button type="button" id="start_btn" class="btn">START</button>
+            <button type="button" id="stop_btn" class="btn">STOP</button>
+            <button type="button" id="reset_btn" class="btn">RESET</button>
+        </div>
+
     </body>
 </html>

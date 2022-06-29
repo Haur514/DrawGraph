@@ -1,7 +1,12 @@
 window.onload = function(){
+    canvas_field = document.getElementById("canvas_field");
     canvas = document.getElementsByClassName("canvas");
+    resize_canvas(canvas);
     passed_time_label = document.getElementById("passed_time_label");
     let measure_time_label = document.getElementById("measure_time_label");
+
+    canvas_width = get_canvas_size();
+    canvas_height = get_canvas_size();
 
     measure_time_label.addEventListener("input",function(){
         measure_time = measure_time_label.value.split(':');
@@ -35,6 +40,8 @@ window.onload = function(){
     });
 }
 
+
+
 var canvas;
 var start_date;
 var passed_time_label;
@@ -50,22 +57,58 @@ var old_passed_time = 0;
 
 var current_passed_mili_seconds;
 let is_timer_running = false;
-canvas_width=500;
-canvas_height=500;
+var canvas_width = 500;
+var canvas_height = 500;
 time = 0;
 
 MAX_NUM_OF_CIRCLE = 4;
-max_radius_of_the_circle =Math.min(canvas_width,canvas_height)/2-10;
 
+var large_font_size;
+var middle_font_size;
+var small_font_size;
 
 
 COLOR_CIRCLE = ["#FFDEAD","#D2B48C","#FF8C00","#CD853F"]
+
+
+// canvasのサイズを画面のサイズに動的に合わせる．
+var resize_canvas = function(){
+    if(canvas_width === get_canvas_size() && canvas_height === get_canvas_size()){
+        return;
+    }
+    canvas_width = get_canvas_size();
+    canvas_height = get_canvas_size();
+    let canvas = document.getElementsByClassName("canvas");
+    for(let i = 0;i < canvas.length;i++){
+        canvas[i].width = get_canvas_size();
+        canvas[i].height = get_canvas_size();
+    }
+    let lower_part = document.getElementById("lower_part");
+    lower_part.style.top = (get_canvas_size()+10)+'px';
+    lower_part.style.fontSize=get_canvas_size()/15;
+
+    let input_label = document.getElementById("measure_time_label");
+    input_label.style.width = get_canvas_size()/2;
+    input_label.style.height = get_canvas_size()/9;
+    input_label.style.fontSize = get_canvas_size()/15;
+
+    let btns = document.getElementsByClassName("btn")
+    for(let i = 0;i < btns.length;i++){
+        btns[i].style.fontSize = get_canvas_size()/15;
+        btns[i].style.width = get_canvas_size()/3-20;
+    }
+
+    large_font_size = get_canvas_size()/15;
+    middle_font_size = large_font_size/2;
+    small_font_size = middle_font_size/3*2;
+}
 
 var run = function(){
     setInterval(draw_update,10);
 }
 
 var draw_update = function(){
+    resize_canvas();
     clock();
     update_time_label();
     describe_what_each_circle_represents();
@@ -96,5 +139,6 @@ var clock = function(){
 }
 
 
-
-
+var get_canvas_size = function(){
+    return Math.min(window.innerWidth,window.innerHeight*0.7);
+}

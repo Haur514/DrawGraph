@@ -8,6 +8,7 @@ var clearCircle = function(order_from_the_outside){
 // 円の中心角の大きさ，外から何番目の円かを指定．指定された円を描く．
 var drawCircle = function(degree,order_from_the_outside){
     clearCircle(order_from_the_outside);
+    let max_radius_of_the_circle =Math.min(canvas_width,canvas_height)/2-10;
     let ctx = canvas[order_from_the_outside].getContext("2d");
     let radius = max_radius_of_the_circle-order_from_the_outside*max_radius_of_the_circle*circle_haba;
     let radius_of_inside_circle = get_radius_of_inside_circle(order_from_the_outside);
@@ -36,6 +37,7 @@ var drawCircle = function(degree,order_from_the_outside){
 
 // 円の中央の白色部分の半径
 var get_radius_of_inside_circle = function(order_from_the_outside){
+    let max_radius_of_the_circle =Math.min(canvas_width,canvas_height)/2-10;
     return (MAX_NUM_OF_CIRCLE-order_from_the_outside) != 0 ? max_radius_of_the_circle-(order_from_the_outside+1)*max_radius_of_the_circle*circle_haba: 0;
 }
 
@@ -78,13 +80,14 @@ var show_passed_time_label = function(str){
     ctx.fillStyle = 'black';
     ctx.textAlign = "center";
     // 経過時間を表示
-    ctx.font = 'bold 15pt Arial';
+    ctx.font = 'bold '+String(middle_font_size)+'pt Arial';
     ctx.fillText("Elapsed",canvas_width/2,canvas_height/2-45);
-    ctx.fillText("Remaining",canvas_width/2,canvas_height/2+20);
+    ctx.fillText("Remaining",canvas_width/2,canvas_height/2+25);
 
-    ctx.font = 'bold 30pt Arial';
-    ctx.fillText(str,canvas_width/2,canvas_height/2-10);
-    ctx.fillText(trans_ms_to_str_hms(get_remaining_time()),canvas_width/2,canvas_height/2+55);
+
+    ctx.font = 'bold '+String(large_font_size)+'pt Arial';
+    ctx.fillText(str,canvas_width/2,canvas_height/2);
+    ctx.fillText(trans_ms_to_str_hms(get_remaining_time()),canvas_width/2,canvas_height/2+70);
 
     // // 残り時間を表示
     // ctx.font = 'bold 15pt Arial';
@@ -94,7 +97,7 @@ var show_passed_time_label = function(str){
 // canvas[3]に，テキストを追加する．それぞれの円の示す内容を記す．
 var describe_what_each_circle_represents = function(){
     let ctx = canvas[3].getContext("2d");
-    ctx.font = 'bold 10pt Arial';
+    ctx.font = 'bold '+String(small_font_size)+'pt Arial';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'left';
     ctx.fillText("remaining",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(0)-5);

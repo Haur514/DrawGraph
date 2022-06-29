@@ -6,7 +6,7 @@
 
 RatioTimerはこのような問題を解決します．
 
-<img width="535" alt="image" src="https://user-images.githubusercontent.com/82633228/176338473-4ec0a9e8-215d-4cf9-9bf9-5bfda0848330.png">
+<img width="582" alt="image" src="https://user-images.githubusercontent.com/82633228/176348500-1eecbba4-d82f-4905-98a3-8e73b0988246.png">
 
 制限時間に対し，経過した時間の割合をこのような円で表示します．<br>
 最も外側の円が，制限時間の何割が経過したかを表します．<br>

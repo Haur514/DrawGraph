@@ -140,5 +140,5 @@ var clock = function(){
 
 
 var get_canvas_size = function(){
-    return Math.min(window.innerWidth,window.innerHeight*0.7);
+    return Math.min(window.innerWidth-50,(window.innerHeight-50)*0.7);
 }

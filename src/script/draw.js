@@ -81,13 +81,13 @@ var show_passed_time_label = function(str){
     ctx.textAlign = "center";
     // 経過時間を表示
     ctx.font = 'bold '+String(middle_font_size)+'pt Arial';
-    ctx.fillText("Elapsed",canvas_width/2,canvas_height/2-45);
-    ctx.fillText("Remaining",canvas_width/2,canvas_height/2+25);
+    ctx.fillText("Elapsed",canvas_width/2,canvas_height/2-large_font_size-middle_font_size-small_font_size);
+    ctx.fillText("Remaining",canvas_width/2,canvas_height/2+small_font_size);
 
 
     ctx.font = 'bold '+String(large_font_size)+'pt Arial';
-    ctx.fillText(str,canvas_width/2,canvas_height/2);
-    ctx.fillText(trans_ms_to_str_hms(get_remaining_time()),canvas_width/2,canvas_height/2+70);
+    ctx.fillText(str,canvas_width/2,canvas_height/2-middle_font_size);
+    ctx.fillText(trans_ms_to_str_hms(get_remaining_time()),canvas_width/2,canvas_height/2+large_font_size+middle_font_size+small_font_size);
 
     // // 残り時間を表示
     // ctx.font = 'bold 15pt Arial';

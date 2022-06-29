@@ -30,6 +30,7 @@ window.onload = function(){
     let reset_btn = document.getElementById("reset_btn");
     reset_btn.addEventListener("click",function(){
         old_passed_time = 0;
+        is_timer_running = false;
         start_date = new Date();
     });
 }

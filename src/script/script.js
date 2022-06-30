@@ -18,6 +18,7 @@ window.onload = function(){
     let start_btn = document.getElementById("start_btn");
     start_btn.addEventListener("click",function(){
         if(!is_timer_running && measure_time != null){
+            document.getElementById("alert_message").style.visibility = "hidden";
             start_date = new Date();
             is_timer_running = true;
             run();
@@ -34,6 +35,7 @@ window.onload = function(){
 
     let reset_btn = document.getElementById("reset_btn");
     reset_btn.addEventListener("click",function(){
+        document.getElementById("alert_message").style.visibility = "hidden";
         old_passed_time = 0;
         is_timer_running = false;
         start_date = new Date();
@@ -92,11 +94,17 @@ var resize_canvas = function(){
     input_label.style.height = get_canvas_size()/9;
     input_label.style.fontSize = get_canvas_size()/15;
 
-    let btns = document.getElementsByClassName("btn")
+    let btns = document.getElementsByClassName("btn");
     for(let i = 0;i < btns.length;i++){
         btns[i].style.fontSize = get_canvas_size()/15;
         btns[i].style.width = get_canvas_size()/3-20;
     }
+
+    let alert_message = document.getElementById("alert_message");
+    alert_message.style.width = get_canvas_size()/3*2+'px';
+    alert_message.style.height = get_canvas_size()/9*4+'px';
+    alert_message.style.left = get_canvas_size()/2-get_canvas_size()/3+'px';
+    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/9*2+'px';
 
     large_font_size = get_canvas_size()/15;
     middle_font_size = large_font_size/2;
@@ -116,6 +124,7 @@ var draw_update = function(){
         console.log(get_remaining_time());
         is_timer_running = false;
         old_passed_time = 0;
+        document.getElementById("alert_message").style.visibility = "visible";
     }
 }
 

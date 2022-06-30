@@ -8,6 +8,14 @@
         <title>時間計測アプリ</title>
     </head>
     <body>
+        
+        <div id="alert_message">
+            <div class="alert_message_header alert_message_stripes"></div>
+                <spam class="alert_message_label">警報</spam>
+                <spam class="alert_message_timeover_label">Time Over</spam>
+            <div class="alert_message_bottom alert_message_stripes"></div>
+        </div>
+
         <div class="canvas_field" id="canvas_field">
             <canvas class="canvas" width="500px" height="500px"></canvas>
             <canvas class="canvas" width="500px" height="500px"></canvas>
@@ -16,6 +24,7 @@
             <!-- テキストレイヤ -->
             <canvas class="canvas"></canvas>
         </div>
+
         <div id="lower_part" top = "">
             <input type="time" id="measure_time_label" step="1" value="00:00:00">
             <br>
@@ -24,6 +33,8 @@
             <button type="button" id="stop_btn" class="btn">STOP</button>
             <button type="button" id="reset_btn" class="btn">RESET</button>
         </div>
+
+        
 
     </body>
 </html>

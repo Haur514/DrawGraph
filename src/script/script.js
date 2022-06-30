@@ -110,10 +110,11 @@ var resize_canvas = function(){
 var resize_alert_message = function(){
     let alert_message = document.getElementById("alert_message");
     alert_message.style.fontSize = get_canvas_size()/500*30+'px';
-    alert_message.style.width = get_canvas_size()/3*2+'px';
-    alert_message.style.height = get_canvas_size()/9*4+'px';
-    alert_message.style.left = get_canvas_size()/2-get_canvas_size()/3+'px';
-    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/9*2+'px';
+    alert_message.style.width = get_canvas_size()+'px';
+    alert_message.style.height = get_canvas_size()/3*2+'px';
+    alert_message.style.left = 20+'px';
+    alert_message.style.right = 0+'px';
+    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/3+'px';
 }
 
 var run = function(){
@@ -125,6 +126,7 @@ var draw_update = function(){
     clock();
     update_time_label();
     describe_what_each_circle_represents();
+    update_time_over_display(new Date().getMilliseconds()/10);
     if(get_remaining_time() < 0){
         console.log(get_remaining_time());
         is_timer_running = false;
@@ -140,9 +142,16 @@ var update_time_label = function(){
     show_passed_time_label(str_passed_time);
 }
 
+// 時間切れの画面を更新
+var update_time_over_display = function(diff){
+    let upper_stripe = document.getElementById("upper_stripe");
+    upper_stripe.style.backgroundImage = 'repeating-linear-gradient(-45deg,transparent '+(-diff)+'px,transparent '+(10-diff)+'px,rgb(255, 66, 66) '+(10-diff)+'px,rgb(255, 66, 66) '+(20-diff)+'px)';
+    let lower_stripe = document.getElementById("lower_stripe");
+    lower_stripe.style.backgroundImage = 'repeating-linear-gradient(-45deg,transparent '+(diff)+'px,transparent '+(10+diff)+'px,rgb(255, 66, 66) '+(10+diff)+'px,rgb(255, 66, 66) '+(20+diff)+'px)';
+    
+}
+
 // 経過時間を[h,m,s]で返す．
-
-
 var clock = function(){
     passed_mili_seconds = get_passed_mili_seconds();
 

@@ -10,7 +10,7 @@
   text-align:center;
   vertical-align: middle;
   z-index:100;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .alert_message_label{
@@ -27,7 +27,7 @@
   bottom: 10%;
   left: 0;
   color:rgb(231, 208, 0);
-  font-size:1.5em;
+  font-size:1.2em;
 }
 
 .alert_message_label_caution{
@@ -36,7 +36,7 @@
   top: 12%;
   left: 0;
   color:rgb(231, 208, 0);
-  font-size:1.2em;
+  font-size:0.8em;
 }
 
 .alert_message_header {

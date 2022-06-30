@@ -23,7 +23,7 @@ RatioTimerではデザインにも注力しています．<br>
 
 # HOW TO USE
 ## オンラインで使用する場合（推奨）
-[こちら](file:///Users/h-yosiok/Web_Application_Development/Timer/src/index.html)でアプリを公開しています！
+[こちら](https://haur514.github.io/RatioTimer/src/index.html)でアプリを公開しています！
 ご自由にご利用ください!
 
 ## ローカルで使用する場合

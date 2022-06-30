@@ -7,7 +7,7 @@
 
 RatioTimerはこのような問題を解決します．
 
-<img width="582" alt="image" src="https://user-images.githubusercontent.com/82633228/176348500-1eecbba4-d82f-4905-98a3-8e73b0988246.png">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/82633228/176348500-1eecbba4-d82f-4905-98a3-8e73b0988246.png">
 
 制限時間に対し，経過した時間の割合をこのような円で表示します．<br>
 最も外側の円が，制限時間の何割が経過したかを表します．<br>
@@ -15,7 +15,7 @@ RatioTimerはこのような問題を解決します．
 RatioTimerを使って，煩わしい割合計算からはおさらばしましょう！
 
 ## デザイン
-<img width="864" alt="image" src="https://user-images.githubusercontent.com/82633228/176632271-1c4c4314-c631-4b8e-9c92-9931496238c1.png">
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/82633228/176632271-1c4c4314-c631-4b8e-9c92-9931496238c1.png">
 
 RatioTimerではデザインにも注力しています．<br>
 上に示した図は，タイマーの残り時間が0となった時に表示される画面です．<br>

@@ -5,10 +5,13 @@ window.onload = function(){
     passed_time_label = document.getElementById("passed_time_label");
     let measure_time_label = document.getElementById("measure_time_label");
 
+    audio = new Audio("./audio/nc96621.wav");
+
     canvas_width = get_canvas_size();
     canvas_height = get_canvas_size();
 
     measure_time_label.addEventListener("input",function(){
+        audio.pause();
         measure_time = measure_time_label.value.split(':');
         if (measure_time[2] === undefined) measure_time[2] = '00'
         measure_time = measure_time.map(Number);
@@ -16,7 +19,9 @@ window.onload = function(){
     });
 
     let start_btn = document.getElementById("start_btn");
+    
     start_btn.addEventListener("click",function(){
+        audio.pause()
         if(!is_timer_running && measure_time != null){
             document.getElementById("alert_message").style.visibility = "hidden";
             start_date = new Date();
@@ -27,6 +32,7 @@ window.onload = function(){
 
     let stop_btn = document.getElementById("stop_btn");
     stop_btn.addEventListener("click",function(){
+        audio.pause();
         if(is_timer_running){
         old_passed_time += get_time_since_latest_start_btn_pressed(start_date);
             is_timer_running = false;
@@ -35,6 +41,7 @@ window.onload = function(){
 
     let reset_btn = document.getElementById("reset_btn");
     reset_btn.addEventListener("click",function(){
+        audio.pause();
         document.getElementById("alert_message").style.visibility = "hidden";
         old_passed_time = 0;
         is_timer_running = false;
@@ -43,6 +50,7 @@ window.onload = function(){
 }
 
 
+var audio;
 
 var canvas;
 var start_date;
@@ -128,6 +136,7 @@ var draw_update = function(){
     describe_what_each_circle_represents();
     update_time_over_display(new Date().getMilliseconds()/10);
     if(get_remaining_time() < 0){
+        audio.play();
         console.log(get_remaining_time());
         is_timer_running = false;
         old_passed_time = 0;

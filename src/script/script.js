@@ -111,10 +111,10 @@ var resize_alert_message = function(){
     let alert_message = document.getElementById("alert_message");
     alert_message.style.fontSize = get_canvas_size()/500*30+'px';
     alert_message.style.width = get_canvas_size()+'px';
-    alert_message.style.height = get_canvas_size()/3*2+'px';
+    alert_message.style.height = get_canvas_size()+'px';
     alert_message.style.left = 20+'px';
     alert_message.style.right = 0+'px';
-    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/3+'px';
+    alert_message.style.top = 0;//get_canvas_size()/2-get_canvas_size()/3+'px';
 }
 
 var run = function(){

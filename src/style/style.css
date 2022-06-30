@@ -15,10 +15,10 @@
 
 .alert_message_label{
   position:absolute;
-  top: 8%;
+  top: 23%;
   right: 0;
   left: 0;
-  font-size:300%;
+  font-size:2.5em;
 }
 
 .alert_message_timeover_label{
@@ -27,7 +27,16 @@
   bottom: 10%;
   left: 0;
   color:rgb(231, 208, 0);
-  font-size:150%;
+  font-size:1.5em;
+}
+
+.alert_message_label_caution{
+  position:absolute;
+  right: 0;
+  top: 12%;
+  left: 0;
+  color:rgb(231, 208, 0);
+  font-size:1.2em;
 }
 
 .alert_message_header {

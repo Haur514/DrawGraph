@@ -100,15 +100,20 @@ var resize_canvas = function(){
         btns[i].style.width = get_canvas_size()/3-20;
     }
 
-    let alert_message = document.getElementById("alert_message");
-    alert_message.style.width = get_canvas_size()/3*2+'px';
-    alert_message.style.height = get_canvas_size()/9*4+'px';
-    alert_message.style.left = get_canvas_size()/2-get_canvas_size()/3+'px';
-    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/9*2+'px';
+    resize_alert_message();
 
     large_font_size = get_canvas_size()/15;
     middle_font_size = large_font_size/2;
     small_font_size = middle_font_size/3*2;
+}
+
+var resize_alert_message = function(){
+    let alert_message = document.getElementById("alert_message");
+    alert_message.style.fontSize = get_canvas_size()/500*30+'px';
+    alert_message.style.width = get_canvas_size()/3*2+'px';
+    alert_message.style.height = get_canvas_size()/9*4+'px';
+    alert_message.style.left = get_canvas_size()/2-get_canvas_size()/3+'px';
+    alert_message.style.top = get_canvas_size()/2-get_canvas_size()/9*2+'px';
 }
 
 var run = function(){

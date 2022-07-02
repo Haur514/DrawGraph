@@ -3,7 +3,6 @@
   width:300px;
   height:200px;
   font-size:30px;
-  color:rgb(255, 66, 66);
   font-weight: bold;
   font-family:Arial, Helvetica, sans-serif;
   background-color: black;
@@ -16,9 +15,26 @@
 .alert_message_label{
   position:absolute;
   top: 23%;
+  color:rgb(255, 66, 66);
   right: 0;
   left: 0;
   font-size:5em;
+}
+
+.neon_red{
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #ff0000,
+    0 0 41px #ff0000;
+}
+
+.neon_yellow{
+  text-shadow:
+    0 0 7px rgb(42, 42, 42),
+    0 0 10px rgb(42, 42, 42),
+    0 0 10px #fffc55,
+    0 0 21px #fffc55;
 }
 
 .alert_message_timeover_label{

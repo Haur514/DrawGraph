@@ -153,11 +153,22 @@ var update_time_label = function(){
 
 // 時間切れの画面を更新
 var update_time_over_display = function(diff){
+    // 縞々を動かす．
     let upper_stripe = document.getElementById("upper_stripe");
     upper_stripe.style.backgroundImage = 'repeating-linear-gradient(-45deg,transparent '+(-diff)+'px,transparent '+(10-diff)+'px,rgb(255, 66, 66) '+(10-diff)+'px,rgb(255, 66, 66) '+(20-diff)+'px)';
     let lower_stripe = document.getElementById("lower_stripe");
     lower_stripe.style.backgroundImage = 'repeating-linear-gradient(-45deg,transparent '+(diff)+'px,transparent '+(10+diff)+'px,rgb(255, 66, 66) '+(10+diff)+'px,rgb(255, 66, 66) '+(20+diff)+'px)';
-    
+
+    let alert_label = document.getElementById("alert_message_label");
+    alert_label.style.color = get_alert_label_color(diff);
+}
+
+var get_alert_label_color = function(diff){
+    let ratio = Math.abs(Math.sin((diff%100)/100*Math.PI*2));
+    let r = 178+ratio*77;
+    let g = 45*(1-ratio);
+    let b = 53*(1-ratio);
+    return "rgb("+r+","+g+","+b+")";
 }
 
 // 経過時間を[h,m,s]で返す．

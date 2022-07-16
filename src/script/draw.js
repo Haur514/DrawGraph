@@ -28,8 +28,8 @@ var drawCircle = function(degree,order_from_the_outside){
     ctx.moveTo(canvas_width/2,canvas_height/2);
     ctx.arc(canvas_width/2,canvas_height/2,radius_of_inside_circle,-Math.PI/2,translate_radian_from_degree(degree),false);
     ctx.closePath();
-    ctx.fillStyle = "white";
-    ctx.strokeStyle="white";
+    ctx.fillStyle = "black";
+    ctx.strokeStyle="black";
     ctx.fill();
     ctx.lineWidth=5;
     ctx.stroke();
@@ -77,7 +77,7 @@ var get_color_of_outside_circle=function(ratio){
 var show_passed_time_label = function(str){
     let ctx = canvas[3].getContext("2d");
     
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'white';
     ctx.textAlign = "center";
     // 経過時間を表示
     ctx.font = 'bold '+String(middle_font_size)+'pt Arial';
@@ -98,7 +98,7 @@ var show_passed_time_label = function(str){
 var describe_what_each_circle_represents = function(){
     let ctx = canvas[3].getContext("2d");
     ctx.font = 'bold '+String(small_font_size)+'pt Arial';
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'white';
     ctx.textAlign = 'left';
     ctx.fillText("remaining",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(0)-5);
     ctx.fillText("second",canvas_width/2,canvas_height/2-get_radius_of_inside_circle(1)-5);

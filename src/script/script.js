@@ -164,7 +164,7 @@ var update_time_over_display = function(diff){
 }
 
 var get_alert_label_color = function(diff){
-    let ratio = Math.abs(Math.sin((diff%100)/100*Math.PI*2));
+    let ratio = 1-Math.pow(Math.abs(Math.sin((diff%100)/100*Math.PI*2)),3);
     let r = 178+ratio*77;
     let g = 45*(1-ratio);
     let b = 53*(1-ratio);
